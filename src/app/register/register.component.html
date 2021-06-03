@@ -1,0 +1,33 @@
+<form (ngSubmit)="register()">
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+
+                <div class="main">
+                    <h4>Bank Application Login <br>
+                        <h5> {{aim}}</h5>
+                    </h4><br>
+
+                    <form (ngSubmit)="register()">
+
+                        <input id="uname" type="text" class="text" name="uname" [(ngModel)]="uname"
+                            placeholder="UserName"><br><br>
+
+                        <input id="accno" type="text" class="text" name="accnum" [(ngModel)]="accnum"
+                            placeholder="Account number"><br><br>
+
+                        <input id="pswd" type="password" class="text" name="pswd" [(ngModel)]="pswd"
+                            placeholder="Password"><br> <br>
+
+
+                        <input type="submit" value="Register" class="button button1 butefct"> <br><br>
+
+                        <a class="textfp" routerLink="">Log In</a>
+                    </form>    
+                </div>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+</form>
