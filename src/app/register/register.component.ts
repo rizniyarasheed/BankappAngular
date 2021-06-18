@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
@@ -8,34 +9,45 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  accnum="";
-  pswd="";
-  uname="";
 
-  aim="Registration page";
 
-  constructor(private ds:DataService,private router:Router) { }
+  aim = "Registration page";
+
+  registerForm = this.fb.group({
+    accnum: ['', [Validators.required, Validators.pattern('[0-9]*')]],
+    pswd: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]*')]],
+    uname: ['', [Validators.required, Validators.pattern('[a-zA-Z]*')]]
+  })
+
+  constructor(private ds: DataService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
 
-  register(){
+  register() {
 
-    var uname=this.uname;
-    var accnum=this.accnum;
-    var pswd=this.pswd;
-    
+   
 
-    const result=this.ds.register(uname,accnum,pswd)
-    if(result){
-      alert("Registration successful");
-      this.router.navigateByUrl("");
+    var uname = this.registerForm.value.uname;
+    var accnum = this.registerForm.value.accnum;
+    var pswd = this.registerForm.value.pswd;
+
+    if (this.registerForm.valid) {
+      const result = this.ds.register(uname, accnum, pswd)
+      if (result) {
+        alert("Registration successful");
+        this.router.navigateByUrl("");
+      }
+      else {
+        alert("User is already exist,please Log in");
+
+      }
     }
-    else
-    {
-      alert("User is already exist,please Log in");
-      
+    else{
+      alert("Invalid Form")
     }
+
+
   }
 
 

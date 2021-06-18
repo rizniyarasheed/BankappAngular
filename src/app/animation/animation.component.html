@@ -1,0 +1,4 @@
+<div [@openClose]= " isOpen? 'open' : 'close' ">
+    <h3>Account {{isOpen? "Open" : "Closed"}}</h3>
+    <button (click)="toggle()">Toggle</button>
+</div>

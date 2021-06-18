@@ -9,14 +9,15 @@
                 </h4><br>
 
 
-                <form (ngSubmit)="login()">
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
 
-                    <input id="accno" type="text" class="text" name="accnum" [(ngModel)]="accnum"
-                        placeholder="Account number"><br><br>
+                    <input id="accno" type="text" class="text" name="accnum" formControlName="accnum"
+                        placeholder="Account number"><br>
+                        <div *ngIf="(this.loginForm.get('accnum')?.touched || this.loginForm.get('accnum')?.dirty) && this.loginForm.get('accnum')?.errors" class="error">*Invalid AccountNumber</div> <br>      
 
-                    <input id="pswd" type="password" class="text" name="pswd" [(ngModel)]="pswd"
+                    <input id="pswd" type="password" class="text" name="pswd" formControlName="pswd"
                         placeholder="Password"><br>
-                    <br>
+                        <div *ngIf="(this.loginForm.get('pswd')?.touched || this.loginForm.get('pswd')?.dirty) && this.loginForm.get('pswd')?.errors" class="error">*Invalid Password</div> <br>  
 
                     <input type="submit" value="Log In" class="button butefct" > <br>
 

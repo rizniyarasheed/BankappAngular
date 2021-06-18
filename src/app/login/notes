@@ -32,3 +32,36 @@
 6.Template driven angular forms
 
 7.Model driven angular forms
+    7.1 Reactive forms {ReactiveFormsModule}
+        7.1.1 Form Group
+        7.1.2 Form Array
+        7.1.3 Form control
+
+8.Angular Directives
+    8.1 component Directives     
+    8.2 Structural Directives
+        8.2.1 *ngIf="condition"
+        8.2.2 *ngFor
+        8.2.3 *ngSwitch
+    8.3 Attribute Directives
+        8.3.1 Inbuilt Attribute Directives -[ngclass]
+        8.3.2 Userdefined Attribute Directives    
+
+
+ 9.Local storage
+    9.1 setitem
+    9.2 getitem
+    9.3 removeitem
+
+ 10.Parent Child data sharing  
+    10.1 @Input - parent to child data sharing     
+    10.2 @Output -child to parent data sharing
+
+11.EventEmitter -create events and emit events 
+
+12.Angular Pipes- converting set of Input format
+    syntax : expression | pipOperator [: pipArguments]
+
+13. Angular Animations    
+
+
